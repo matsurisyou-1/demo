@@ -1,4 +1,4 @@
-stage:
+stages:
   - pull
   - test
 
@@ -12,7 +12,7 @@ pull:
 
 test:
   stage: test
-  images: python:3.6.4
+  image: python:3.6.4
   before_script:
     - pip install -r demo/requirements.txt
   script:
