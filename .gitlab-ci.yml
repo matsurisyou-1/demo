@@ -1,0 +1,24 @@
+stage:
+  - pull
+  - test
+
+pull:
+  stage: pull
+  image: alpine:latest
+  script:
+    - apk add --no-cache git
+    - git clone https://github.com/matsurisyou-1/demo.git
+    - cd demo
+
+test:
+  stage: test
+  images: python:3.6.4
+  before_script:
+    - pip install -r demo/requirements.txt
+  script:
+    - pytest demo/test_demo.py --junit.xml
+  artifacts:
+    paths:
+      - demo/test_results.xml
+    reports:
+      junit: demo/test-results.xml
