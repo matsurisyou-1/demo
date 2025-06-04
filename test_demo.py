@@ -5,7 +5,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 import os
 import time
-chrome_path = os.path.join(os.path.abspath(__file__), '..', 'chromedriver.exe')
+chrome_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'chromedriver.exe')
 
 @pytest.fixture(scope='module')
 def setup_browser():
